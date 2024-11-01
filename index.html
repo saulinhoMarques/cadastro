@@ -12,57 +12,32 @@
 </head>
 
 <style>
+    body {
+        background-color: #570e8b;
+    }
 
-body{
-    background-color: #570e8b;
-}
-
-    /*.pai{
-width: 500px;
-height: 600px;
-border-radius: 25px;
-box-shadow: 10px 5px 5px #bbb8b8;
-padding: 30px;
-margin-top: 25px;
-background-color: darkkhaki;
-}
-*/
-
-    /* From Uiverse.io by adamgiebl */
     .card {
-
         margin-top: 15px;
-        width: 500px;
-        height: 750px;
         border-radius: 25px;
         padding: 5px;
         box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
         background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
- 
-margin-left: 15px;
-margin-right: 15px;
     }
 
     .card__content {
         background: rgb(5, 6, 45);
         border-radius: 17px;
-        width: 100%;
-        height: 100%;
         padding: 30px;
     }
 
-    /* From Uiverse.io by alexroumi */
     button {
         padding: 15px 25px;
         border: unset;
         border-radius: 10px;
         color: #212121;
-        z-index: 1;
         background: #e8e8e8;
-        position: relative;
         font-weight: 1000;
         font-size: 17px;
-        -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
         box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
         transition: all 250ms;
         overflow: hidden;
@@ -77,10 +52,8 @@ margin-right: 15px;
         width: 0;
         border-radius: 10px;
         background-color: #212121;
-        z-index: -1;
-        -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
         box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
-        transition: all 250ms
+        transition: all 250ms;
     }
 
     button:hover {
@@ -102,137 +75,44 @@ margin-right: 15px;
 </style>
 
 <body>
-    <center>
-        <div class="card">
-            <div class="card__content">
+    <div class="container">
+        <center>
+            <div class="card col-12 col-md-6">
+                <div class="card__content">
+                    <h1 id="legenda">Cadastre-se aqui !!! <br><br></h1>
 
+                    <div class="input-group mb-3">
+                        <input id="txt_nome" type="text" class="form-control" placeholder="Digite seu primeiro nome">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txt_email" type="text" class="form-control" placeholder="Digite seu email">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txt_interesse" type="text" class="form-control" placeholder="Digite sua area de interesse">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txt_objetivo" type="text" class="form-control" placeholder="Seu objetivo nesse site">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txt_num" type="number" class="form-control" placeholder="Seu numero de telefone">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txt_cidade" type="text" class="form-control" placeholder="Cidade onde voce mora">
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="txt_area" type="text" class="form-control" placeholder="Sua area em TI">
+                    </div>
 
-                <h1 id="legenda">
-                    Cadastre-se aqui !!! <br><br>
-                </h1>
+                    <button id="btn_cadastrar" type="button" onclick="cadastrar()">Cadastrar</button>
+                    <button id="btn_mostrar" type="button" onclick="mostrar()">Mostrar</button><br><br>
 
-                <div class="input-group mb-3">
-                    <input id="txt_nome" type="text" class="form-control" placeholder="Digite seu primeiro nome" 
-                        aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="input-group mb-3">
+                        <input id="txt_pesquisa" type="text" class="form-control" placeholder="Pesquisar nome">
+                    </div>
+                    <button id="btn_pesquisar" type="button" onclick="pesquisar()">Pesquisar</button><br>
                 </div>
-                <div class="input-group mb-3">
-                    <input id="txt_email" type="text" class="form-control" placeholder="Digite seu email"
-                        aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input id="txt_interesse" type="text" class="form-control"
-                        placeholder="Digite sua area de interesse" aria-label="Username"
-                        aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input id="txt_objetivo" type="text" class="form-control" placeholder="Seu objetivo nesse site"
-                        aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input id="txt_num" type="number" class="form-control" placeholder="Seu numero de telefone"
-                        aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input id="txt_cidade" type="text" class="form-control" placeholder="Cidade onde voce mora"
-                        aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <div class="input-group mb-3">
-                    <input id="txt_area" type="text" class="form-control" placeholder="Sua area em TI"
-                        aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-
-                <br>
-
-                <button id="btn_cadastrar" type="button" onclick="cadastrar()" value="Cadastrar">Cadastrar</button>
-                <button id="btn_mostrar" type="button" onclick="mostrar()" value="Mostrar">Mostrar</button><br><br>
-                <div class="input-group mb-3">
-                    <input id="txt_pesquisa" type="text" class="form-control" placeholder="Pesquisar nome"
-                        aria-label="Username" aria-describedby="basic-addon1">
-                </div>
-                <button id="btn_pesquisar" type="button" onclick="pesquisar()" value="Pesquisar">Pesquisar</button><br>
             </div>
-
-        </div>
-
-    </center>
-
-    <script>
-        let nomes = [];
-        let emails = [];
-        let interesses = [];
-        let objetivos = [];
-        let numero = [];
-        let cidade = [];
-        let area = [];
-
-        // Função para cadastrar os dados
-        function cadastrar() {
-            // Pega os valores dos campos de entrada e adiciona aos arrays
-            nomes.push(document.querySelector("#txt_nome").value);
-            emails.push(document.querySelector("#txt_email").value);
-            interesses.push(document.querySelector("#txt_interesse").value);
-            objetivos.push(document.querySelector("#txt_objetivo").value);
-            numero.push(document.querySelector("#txt_num").value);
-            cidade.push(document.querySelector("#txt_cidade").value);
-            area.push(document.querySelector("#txt_area").value);
-
-
-            // Exibe uma mensagem de sucesso usando a biblioteca SweetAlert2
-            Swal.fire({
-                title: "Parabéns!!!",
-                text: "Dados cadastrados com sucesso!",
-                icon: "success"
-            });
-        }
-
-        // Função para mostrar todos os dados cadastrados
-        function mostrar() {
-            // Itera sobre todos os itens cadastrados e os exibe na tela
-            for (let i = 0; i < nomes.length; i++) {
-                document.write("Nome: " + nomes[i]);
-                document.write(" Email: " + emails[i]);
-                document.write(" Area de interesses: " + interesses[i]);
-                document.write(" seus objetivos: " + objetivos[i]);
-                document.write(" seu numero de telefone: " + numero[i]);
-                document.write(" sua cidade: " + cidade[i]);
-                document.write(" sua area: " + area[i]+"<br>");
-
-
-            }
-        }
-
-        // Função para pesquisar por um nome específico
-        function pesquisar() {
-            // Pega o valor do campo de pesquisa
-            let nomePesquisa = document.querySelector("#txt_pesquisa").value;
-            // Procura o índice do nome no array de nomes
-            let index = nomes.indexOf(nomePesquisa);
-
-            // Verifica se o nome foi encontrado (índice diferente de -1)
-            if (index !== -1) {
-                // Exibe somente os dados do usuário encontrado
-                Swal.fire({
-                    title: "Resultado da Pesquisa",
-                    text: "Nome: " + nomes[index] + "\nEmail: " + emails[index] + "\nÁrea de Interesse: " + interesses[index] +
-                        "\nObjetivo: " + objetivos[index] + "\nNúmero de Telefone: " + numero[index] +
-                        "\nCidade: " + cidade[index] + "\nÁrea em TI: " + area[index],
-                    icon: "info"
-                });
-            } else {
-                Swal.fire({
-                    title: "Erro",
-                    text: "Nome não encontrado!",
-                    icon: "error"
-                });
-            }
-        }
-
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+        </center>
+    </div>
 </body>
-
 </html>
